@@ -1,0 +1,7 @@
+*.gz
+*.h5ad
+*.md5
+*.rds
+*.log
+*.csv
+.*
