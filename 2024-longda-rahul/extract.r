@@ -15,7 +15,7 @@ in.fn <- argv[1];
 gene <- "TERT";
 experiment <- tolower(strsplit(in.fn, "_")[[1]][3]);
 
-out.fn <- filename("nadig24", tag=c(experiment, "obs", tolower(gene)), ext="rds", date=NA);
+out.fn <- filename("jiang24", tag=c(experiment, "obs", tolower(gene)), ext="rds", date=NA);
 
 x <- qread(in.fn);
 
