@@ -1,0 +1,32 @@
+Downloaded from https://virtualcellchallenge.org/
+
+Cells with target_gene == 'non-targeting' seems to be the same
+across train, test, and validation.
+
+They appear in same order but at different positions
+in the matrix, and the counts are the same.
+
+```{python}
+import anndata as ad
+
+d_train = ad.read_h5ad('train/adata_Training.h5ad')
+d_valid = ad.read_h5ad('validation/adata_Validation.h5ad')
+d_test  = ad.read_h5ad('test/adata_Test.h5ad')
+
+d_train.obs.target_gene.value.counts()
+# 38176 cells with non-targeting
+d_valid.obs.target_gene.value.counts()
+# 38176 cells with non-targeting
+d_test.obs.target_gene.value.counts()
+# 38176 cells with non-targeting
+
+idx = (d_train.obs.target_gene == 'non-targeting').to_numpy()
+print(d_train.X[idx.nonzero()[0][30:40], 200:210].toarray())
+
+idx = (d_valid.obs.target_gene == 'non-targeting').to_numpy()
+print(d_valid.X[idx.nonzero()[0][30:40], 200:210].toarray())
+
+idx = (d_test.obs.target_gene == 'non-targeting').to_numpy()
+print(d_test.X[idx.nonzero()[0][30:40], 200:210].toarray())
+```
+
