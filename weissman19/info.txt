@@ -1,0 +1,2 @@
+cell line: K562
+design: co-activation of pairs of genes using CRISPRa
