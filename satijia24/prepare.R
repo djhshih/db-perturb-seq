@@ -20,6 +20,8 @@ in.fns <- c(
 	tnfa = "Seurat_object_TNFA_Perturb_seq.rds"
 );
 
+dataset <- "satija24";
+
 # cell lines: A549, BXPC3, HAP1, HT29, K562, MCF7
 # perturb target is in the "gene" field
 # control is "NT"
@@ -27,7 +29,7 @@ in.fns <- c(
 
 for (stratum in names(in.fns)) {
 	message(stratum)
-	out.fn <- filename("satijia24", tag=c("perturb-seq", stratum), date=NA, ext="h5ad");
+	out.fn <- filename(dataset, tag=c("perturb-seq", stratum), date=NA, ext="h5ad");
 	x <- qread(in.fns[stratum]);
 	adata <- seurat_to_anndata(x);
 	ctype.levels <- unique(adata$obs$cell_type);
@@ -40,8 +42,8 @@ for (stratum in names(in.fns)) {
 }
 
 # check that we can read the written h5ad files
-# x1 <- read_h5ad("satijia24_perturb-seq_ifng_mcf7.h5ad");
-# x2 <- read_h5ad("satijia24_perturb-seq_tgfb_mcf7.h5ad");
+# x1 <- read_h5ad("satija24_perturb-seq_ifng_mcf7.h5ad");
+# x2 <- read_h5ad("satija24_perturb-seq_tgfb_mcf7.h5ad");
 # sort(table(x1$obs$gene))
 # sort(table(x2$obs$gene))
 
