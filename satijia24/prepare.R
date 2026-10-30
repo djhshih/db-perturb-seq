@@ -39,3 +39,9 @@ for (stratum in names(in.fns)) {
 	rm(x, adata); gc();
 }
 
+# check that we can read the written h5ad files
+# x1 <- read_h5ad("satijia24_perturb-seq_ifng_mcf7.h5ad");
+# x2 <- read_h5ad("satijia24_perturb-seq_tgfb_mcf7.h5ad");
+# sort(table(x1$obs$gene))
+# sort(table(x2$obs$gene))
+
